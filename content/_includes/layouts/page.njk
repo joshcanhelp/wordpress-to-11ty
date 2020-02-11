@@ -1,0 +1,19 @@
+{% extends "_html.njk" %}
+
+{% from "macros/postListing.njk" import postListing %}
+
+{% block content %}
+<main>
+  {{ content | safe }}
+</main>
+{% if page.fileSlug === 'home-page' %}
+  <br><br>
+  <h2>Best Of Posts</h2>
+  <ul>
+  {% for post in collections.bestOfCollection %}
+    {{ postListing(post) }}
+  {% endfor %}
+  </ul>
+  <p><a href="/archives/all/">All posts</a></p>
+{% endif %}
+{% endblock %}

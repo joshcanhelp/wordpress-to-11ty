@@ -1,0 +1,13 @@
+{% extends "_html.njk" %}
+
+{% block content %}
+<main>
+  <h1>{{ title }}</h1>
+  {{ content | safe }}
+  <ul>
+  {% for name, count in collections.allTags %}
+    <li><a href="/tag/{{ name | slug }}" class="jch-tag">{{ name | safe }} <strong>{{ count }}</strong></a></li>
+  {% endfor %}
+  </ul>
+</main>
+{% endblock %}

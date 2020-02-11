@@ -1,0 +1,17 @@
+{% macro postListing(post) %}
+{% if post.data.permalink %}
+<li>
+  {% if post.data.featured_img %}
+  <a href="{{ post.url | safe }}">
+    <img src="{{ post.data.featured_img | safe }}">
+  </a>
+  {% endif %}
+  <h2><a href="{{ post.url | safe }}">{{ post.data.title | safe }}</a></h2>
+  <p>{{ post.data.excerpt | safe }}</p>
+  <p>
+    <strong>Published: </strong>
+    <span>{{ post.date | dateformat }}</span>
+  </p>
+</li>
+{% endif %}
+{% endmacro %}

@@ -1,0 +1,16 @@
+{% extends "_html.njk" %}
+
+{% from "macros/postListing.njk" import postListing %}
+
+{% block content %}
+<main>
+  <h1>Tagged "{{ tag }}"</h1>
+  <p><a href="/archives/tags/">All tags</a></p>
+  <ul>
+  {% set taglist = collections[ tag ] %}
+  {% for post in taglist %}
+    {{ postListing(post) }}
+  {% endfor %}
+  </ul>
+</main>
+{% endblock %}
